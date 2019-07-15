@@ -171,10 +171,7 @@ module "alb_test" {
         type = "redirect"
 
         config = {
-          host        = null
           port        = 443
-          path        = null
-          query       = null
           protocol    = "HTTPS"
           status_code = "HTTP_301"
         }
