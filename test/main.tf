@@ -188,18 +188,6 @@ module "alb_test" {
 
     actions = [
       {
-        type = "authenticate-oidc"
-
-        config = {
-          authorization_endpoint = "https://example.com/authorization_endpoint"
-          client_id              = "client_id"
-          client_secret          = "client_secret"
-          issuer                 = "https://example.com"
-          token_endpoint         = "https://example.com/token_endpoint"
-          user_info_endpoint     = "https://example.com/user_info_endpoint"
-        }
-      },
-      {
         type = "forward"
 
         config = {
