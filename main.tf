@@ -181,12 +181,12 @@ resource "aws_lb_listener" "http" {
       type = default_action.value.type
 
       redirect {
-        host        = default_action.value.config.host
-        path        = default_action.value.config.path
-        port        = default_action.value.config.port
-        protocol    = default_action.value.config.protocol
-        query       = default_action.value.config.query
-        status_code = default_action.value.config.status_code
+        host        = lookup(default_action.value.config, "host", null)
+        path        = lookup(default_action.value.config, "path", null)
+        port        = lookup(default_action.value.config, "port", null)
+        protocol    = lookup(default_action.value.config, "protocol", null)
+        query       = lookup(default_action.value.config, "query", null)
+        status_code = lookup(default_action.value.config, "status_code", null)
       }
     }
   }
@@ -201,9 +201,9 @@ resource "aws_lb_listener" "http" {
       type = default_action.type
 
       fixed_response {
-        content_type = default_action.value.config.content_type
-        message_body = default_action.value.config.message_body
-        status_code  = default_action.value.config.status_code
+        content_type = lookup(default_action.value.config, "content_type", null)
+        message_body = lookup(default_action.value.config, "message_body", null)
+        status_code  = lookup(default_action.value.config, "status_code", null)
       }
     }
   }
@@ -244,12 +244,12 @@ resource "aws_lb_listener" "https" {
       type = default_action.type
 
       redirect {
-        host        = default_action.value.config.host
-        path        = default_action.value.config.path
-        port        = default_action.value.config.port
-        protocol    = default_action.value.config.protocol
-        query       = default_action.value.config.query
-        status_code = default_action.value.config.status_code
+        host        = lookup(default_action.value.config, "host", null)
+        path        = lookup(default_action.value.config, "path", null)
+        port        = lookup(default_action.value.config, "port", null)
+        protocol    = lookup(default_action.value.config, "protocol", null)
+        query       = lookup(default_action.value.config, "query", null)
+        status_code = lookup(default_action.value.config, "status_code", null)
       }
     }
   }
@@ -264,9 +264,9 @@ resource "aws_lb_listener" "https" {
       type = default_action.type
 
       fixed_response {
-        content_type = default_action.value.config.content_type
-        message_body = default_action.value.config.message_body
-        status_code  = default_action.value.config.status_code
+        content_type = lookup(default_action.value.config, "content_type", null)
+        message_body = lookup(default_action.value.config, "message_body", null)
+        status_code  = lookup(default_action.value.config, "status_code", null)
       }
     }
   }
@@ -282,14 +282,14 @@ resource "aws_lb_listener" "https" {
 
       authenticate_cognito {
 
-        authentication_request_extra_params = default_action.value.config.authentication_request_extra_params
-        on_unauthenticated_request          = default_action.value.config.on_unauthenticated_request
-        scope                               = default_action.value.config.scope
-        session_cookie_name                 = default_action.value.config.session_cookie_name
-        session_timeout                     = default_action.value.config.session_timeout
-        user_pool_arn                       = default_action.value.config.user_pool_arn
-        user_pool_client_id                 = default_action.value.config.user_pool_client_id
-        user_pool_domain                    = default_action.value.config.user_pool_domain
+        authentication_request_extra_params = lookup(default_action.value.config, "authentication_request_extra_params", null)
+        on_unauthenticated_request          = lookup(default_action.value.config, "on_unauthenticated_request", null)
+        scope                               = lookup(default_action.value.config, "scope", null)
+        session_cookie_name                 = lookup(default_action.value.config, "session_cookie_name", null)
+        session_timeout                     = lookup(default_action.value.config, "session_timeout", null)
+        user_pool_arn                       = lookup(default_action.value.config, "user_pool_arn", null)
+        user_pool_client_id                 = lookup(default_action.value.config, "user_pool_client_id", null)
+        user_pool_domain                    = lookup(default_action.value.config, "user_pool_domain", null)
 
       }
     }
@@ -305,17 +305,17 @@ resource "aws_lb_listener" "https" {
       type = default_action.type
 
       authenticate_oidc {
-        authentication_request_extra_params = default_action.value.config.authentication_request_extra_params
-        authorization_endpoint              = default_action.value.config.authorization_endpoint
-        client_id                           = default_action.value.config.client_id
-        client_secret                       = default_action.value.config.client_secret
-        issuer                              = default_action.value.config.issuer
-        on_unauthenticated_request          = default_action.value.config.on_unauthenticated_request
-        scope                               = default_action.value.config.scope
-        session_cookie_name                 = default_action.value.config.session_cookie_name
-        session_timeout                     = default_action.value.config.session_timeout
-        token_endpoint                      = default_action.value.config.token_endpoint
-        user_info_endpoint                  = default_action.value.config.user_info_endpoint
+        authentication_request_extra_params = lookup(default_action.value.config, "authentication_request_extra_params", null)
+        authorization_endpoint              = lookup(default_action.value.config, "authorization_endpoint", null)
+        client_id                           = lookup(default_action.value.config, "client_id", null)
+        client_secret                       = lookup(default_action.value.config, "client_secret", null)
+        issuer                              = lookup(default_action.value.config, "issuer", null)
+        on_unauthenticated_request          = lookup(default_action.value.config, "on_unauthenticated_request", null)
+        scope                               = lookup(default_action.value.config, "scope", null)
+        session_cookie_name                 = lookup(default_action.value.config, "session_cookie_name", null)
+        session_timeout                     = lookup(default_action.value.config, "session_timeout", null)
+        token_endpoint                      = lookup(default_action.value.config, "token_endpoint", null)
+        user_info_endpoint                  = lookup(default_action.value.config, "user_info_endpoint", null)
       }
     }
   }
