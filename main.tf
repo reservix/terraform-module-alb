@@ -326,14 +326,14 @@ resource "aws_lb_listener" "https" {
 #------------------------------------------------------------------------------#
 
 resource "aws_lb_listener_certificate" "local_provider" {
-  count = length(data.aws_route53_zone.local_provider_gen_cert.*.id)
+  count = length(aws_acm_certificate.local_provider.*)
 
   listener_arn    = aws_lb_listener.https.arn
   certificate_arn = aws_acm_certificate.local_provider[count.index].arn
 }
 
 resource "aws_lb_listener_certificate" "dns_provider" {
-  count = length(data.aws_route53_zone.dns_provider_gen_cert.*.id)
+  count = length(aws_acm_certificate.dns_provider.*)
 
   listener_arn    = aws_lb_listener.https.arn
   certificate_arn = aws_acm_certificate.dns_provider[count.index].arn
