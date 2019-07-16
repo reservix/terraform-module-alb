@@ -163,8 +163,7 @@ module "alb_test" {
   }
 
   listener_http = {
-    protocol = "HTTP"
-    port     = 80
+    port = 80
 
     actions = [
       {
@@ -180,8 +179,7 @@ module "alb_test" {
   }
 
   listener_https = {
-    protocol = "HTTPS"
-    port     = 443
+    port = 443
 
     actions = [
       {

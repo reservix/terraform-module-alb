@@ -54,13 +54,11 @@ variable "network" {
 variable "listener_http" {
   description = "Listerners"
   default = {
-    protocol = "HTTPS"
-    port     = 80
-    actions  = []
+    port    = 80
+    actions = []
   }
   type = object({
-    protocol = string
-    port     = number
+    port = number
     actions = list(object({
       type   = string
       config = map(any)
@@ -71,14 +69,12 @@ variable "listener_http" {
 variable "listener_https" {
   description = "Listerners"
   default = {
-    protocol  = "HTTPS"
     port      = 443
     actions   = []
     endpoints = []
   }
   type = object({
-    protocol = string
-    port     = number
+    port = number
     actions = list(object({
       type   = string
       config = map(any)
