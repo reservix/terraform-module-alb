@@ -3,7 +3,7 @@
 #------------------------------------------------------------------------------#
 
 terraform {
-  required_version = ">= 0.12.3"
+  required_version = ">= 0.12.4"
 
   backend "s3" {
     profile = "management"
