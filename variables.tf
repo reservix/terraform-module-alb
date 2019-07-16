@@ -10,9 +10,9 @@
 variable "config" {
   description = "ALB settings"
   type = object({
-    enable_deletion_protection = string
-    internal                   = string
-    idle_timeout               = string
+    enable_deletion_protection = bool
+    internal                   = bool
+    idle_timeout               = number
     name                       = string
     log_bucket_name            = string
     ip_address_type            = string
