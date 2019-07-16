@@ -212,9 +212,6 @@ resource "aws_lb_listener" "http" {
 #------------------------------------------------------------------------------#
 # HTTPS Listener
 #------------------------------------------------------------------------------#
-# TODO:
-# lookup(default_action.value.config, key, null) -> TICKET
-#------------------------------------------------------------------------------#
 
 resource "aws_lb_listener" "https" {
   load_balancer_arn = aws_lb.main.arn

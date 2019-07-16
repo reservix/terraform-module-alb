@@ -8,20 +8,13 @@ locals {
     endpoint
     if endpoint.gen_cert == true
   ]
+
   endpoints_local_provider_pre_cert = [
     for endpoint in local.endpoints_local_provider :
     endpoint
     if endpoint.gen_cert == false
   ]
 }
-
-# output "endpoints_local_provider_gen_cert" {
-#   value = "${local.endpoints_local_provider_gen_cert}"
-# }
-
-# output "endpoints_local_provider_pre_cert" {
-#   value = "${local.endpoints_local_provider_pre_cert}"
-# }
 
 #------------------------------------------------------------------------------#
 # Local DNS
